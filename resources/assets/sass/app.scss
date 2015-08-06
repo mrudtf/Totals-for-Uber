@@ -1,0 +1,319 @@
+@import 'mixins';
+@import 'stripe';
+
+$blue: #1fbad6;
+$midblue: #3e5771;
+$darkblue: #2c3e50;
+$red: #c0392b;
+$uber: #070716;
+
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  padding-top: 50px;
+  padding-bottom: 35px;
+  background: $uber;
+  color: #fff;
+}
+
+#googlemaps {
+  opacity: 0.3;
+  height: 100%;
+  width: 100%;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#page-loading {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('/images/loading-large-white.svg') 50% 50% no-repeat $uber;
+  background-size: 50px;
+}
+
+.v-all {
+  .container {
+    max-width: 750px;
+  }
+}
+
+.container {
+  max-width: 500px;
+  position: relative;
+  z-index: 5;
+}
+
+.title-container {
+  text-align: center;
+  margin-bottom: 30px;
+  a {
+    text-decoration: none;
+    h2.title {
+      display: inline;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 1.5em;
+      border-bottom: 3px solid $blue;
+      padding-bottom: 8px;
+      color: #fff;
+      .uber-badge {
+        width: 20px;
+        vertical-align: top;
+        margin-top: 2px;
+        margin-left: 3px;
+      }
+    }
+  }
+}
+
+.want-to-see {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  font-size: 18px;
+  .now-you-can {
+    color: $blue;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+  }
+}
+
+.sign-in-uber {
+  text-align: center;
+  a {
+    background: none;
+    text-transform: uppercase;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-size: 2em;
+    padding: 8px 10px 9px;
+    text-decoration: none;
+    @include transition(all, 0.1s, ease-in-out);
+    &:hover {
+      opacity: 0.8;
+    }
+    .uber-badge {
+      display: inline-block;
+      margin-left: 5px;
+      width: 35px;
+    }
+  }
+}
+
+.view-leaderboard {
+  text-align: center;
+  margin-top: 35px;
+  &.dash {
+    margin-top: 0px;
+    margin-bottom: 25px;
+  }
+  &.leaderboard {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  a {
+    color: $blue;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+.user-profile {
+  text-align: center;
+  margin-bottom: 50px;
+  .photo {
+    border-radius: 100%;
+    display: block;
+    margin: 0 auto 30px;
+    padding: 2px;
+    border: 3px solid rgba($blue, 0.75);
+  }
+  h2 {
+    display: inline;
+    padding-bottom: 20px;
+    border-bottom: 3px solid $blue;
+    .uber-badge {
+      display: inline-block;
+      width: 35px;
+    }
+  }
+}
+
+.user-stats {
+  >div {
+    text-align: center;
+    h2 {
+      font-weight: bold;
+      font-size: 3em;
+    }
+    h3 {
+      font-size: 1.8em;
+    }
+    h4 {
+      color: $blue;
+    }
+  }
+}
+
+.user-products {
+  padding-top: 20px;
+  .row {
+    padding-bottom: 15px;
+    .product-image {
+      text-align: center;
+      img {
+        -webkit-filter: invert(1);
+        filter: invert(1);
+        max-height: 50px;
+      }
+    }
+    h2 {
+      font-size: 1.8em;
+      margin-top: 0;
+    }
+    h3 {
+      font-size: 1.4em;
+      margin-top: 0;
+      color: $blue;
+    }
+  }
+}
+
+.share-stats {
+  margin-top: 20px;
+  >div {
+    text-align: center;
+  }
+  .change-done {
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: #8bde5c;
+  }
+  a {
+    font-size: 1.5em;
+    padding: 8px 9px 7px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background: $uber;
+    color: #fff;
+    @include transition(all, 0.1s, ease-in-out);
+    &.pubpriv {
+      font-size: 1em;
+      padding-top: 0;
+      background: none;
+      margin-bottom: 22px;
+    }
+    &.twitter {
+      border: 2px solid #55acee;
+      background: #55acee;
+    }
+    &.facebook {
+      border: 2px solid #3b5998;
+      background: #3b5998;
+      margin-top: 15px;
+    }
+    &.uber {
+      border: 2px solid $blue;
+      background: $blue;
+      strong {
+        display: block;
+        text-transform: uppercase;
+      }
+    }
+    &:hover {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+}
+
+.twitter-share-button {
+  display: block;
+  margin: 40px auto 0;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 35px;
+  .other-thing {
+    padding-bottom: 10px;
+    font-size: 13px;
+  }
+  .fa {
+    color: $red;
+    &.fa-comment {
+      color: $blue;
+    }
+  }
+  .bryce {
+    border-radius: 100%;
+    padding: 2px;
+  }
+  a {
+    font-weight: bold;
+    color: $blue;
+    &.brycese {
+      color: #fff;
+    }
+  }
+  .built-hackathon {
+    display: block;
+    padding-top: 3px;
+    padding-bottom: 6px;
+    font-size: 13px;
+    font-style: italic;
+  }
+  .links {
+    margin-top: 5px;
+  }
+}
+
+.leaderboard-results {
+  .showing-x-results {
+    margin-bottom: 15px;
+    font-style: italic;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+  }
+  th {
+    text-align: center;
+    &.name {
+      text-align: left;
+    }
+  }
+  td.name {
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    .user-photo {
+      border-radius: 100%;
+      margin-right: 10px;
+    }
+    .leaderboard-you {
+      background: $blue;
+      color: #fff;
+      padding: 3px 6px 2px;
+    }
+  }
+  a {
+    color: $blue;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .pagin {
+    text-align: center;
+  }
+}
